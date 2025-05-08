@@ -18,7 +18,7 @@ sequence_len = 1000
 
 #Generate the sequence
 sequence = random.choices(symbols, weights=p, k=sequence_len )
-print(f'Random sequence: {"".join(sequence[:100])}...\n')
+print(f'\033[1mRandom sequence: \033[0m{"".join(sequence[:100])}...\n')
 
 # Create all 36 possible 2-letter blocks
 all_blocks = []
@@ -70,7 +70,7 @@ for item in huffman_list[0][1:]:
     codes[item[0]] = item[1]
 
 # Print all the blocks with their codes
-print("Huffman codes for blocks:")
+print("\033[1mHuffman codes for blocks:\033[0m")
 for k, v in codes.items():
     print(f"{k}: {v}")
 print()
@@ -84,15 +84,15 @@ for b in block_probs:
 # 1 ASCII char = 8bit -> 2 ASCII char = 16bit
 compression_ratio = 16 / average_len 
 
-print("Avg. codeword length: ", round(average_len, 2), "bits")
-print("Compression ratio: ", round(compression_ratio, 2), "x")
+print("\033[1mAvg. codeword length: \033[0m", round(average_len, 2), "bits")
+print("\033[1mCompression ratio: \033[0m", round(compression_ratio, 2), "x\n")
 
 # Encode the sequence using the Huffman codes
 encoded_bits = ""
 for b in blocks: 
     encoded_bits += codes[b]
 # Print the encoded bit sequence (first 200 bits for preview)
-print("Encoded sequence/bitstream (first 200 bits): ", encoded_bits[:200], '...')
+print("\033[1mEncoded sequence/bitstream (first 200 bits): \033[0m", encoded_bits[:200], '...\n')
 
 #DECODING function
 # Params: sequence of encoded bits, codebook of all the possible blocks
@@ -115,11 +115,11 @@ for block in decoded_blocks:
 
 # Prints out the decoded sequence as array
 decoded_sequence_string = ''.join(decoded_sequence)    
-print("Decoded sequence (first 100 characters): ", decoded_sequence[:100])
+print("\033[1mDecoded sequence (first 100 characters): \033[0m", decoded_sequence[:100])
 
 # Checks if the decoding was in fact successfull
 original_sequence_string = ''.join(sequence[:len(decoded_sequence)])
 if decoded_sequence_string == original_sequence_string:
-    print("Decoding successfull!")
+    print("\033[92mDecoding successfull\033[0m")
 else: 
-    print("Decoding failed! Mismatch in the decoded sequence.")    
+    print("\033[91mDecoding failed!\033[0m Mismatch in the decoded sequence.")    
