@@ -115,7 +115,7 @@ for block in decoded_blocks:
 
 # Prints out the decoded sequence as array
 decoded_sequence_string = ''.join(decoded_sequence)    
-print("\033[1mDecoded sequence (first 100 characters): \033[0m", decoded_sequence[:100])
+print("\033[1mDecoded sequence (first 100 characters): \033[0m", decoded_sequence_string[:100], "...")
 
 # Checks if the decoding was in fact successfull
 original_sequence_string = ''.join(sequence[:len(decoded_sequence)])
