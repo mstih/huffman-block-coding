@@ -25,5 +25,5 @@ python huffman_block_coding.py
 
 ### 👥 Authors
 
-Miha Štih (@mstih) and
-Luka Uršič (@urluur)
+Miha Štih [@mihastih](https://github.com/mstih) and
+Luka Uršič [@urluur] (https://github.com/urluur)
